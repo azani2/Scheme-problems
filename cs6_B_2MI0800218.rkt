@@ -146,18 +146,9 @@ test-counts
 (define (next-points step point-pair)
     (let ((p1 (car point-pair))
           (p2 (cdr point-pair)))
-    (cond ((correct? p1 (move-x step p2)) (cons-stream (cons p1 (move-x step p2)) (next-points (cons p1 (move-x step p2)))))
-          ((correct? p1 (move-y step p2)) (cons-stream (cons p1 (move-y step p2)) (next-points (cons p1 (move-y step p2)))))
-          ((correct? (move-x step p1) p2) (cons-stream (cons (move-x step p1) p2) (next-points (cons (move-x step p1) p2))))
-          ((correct? (move-y step p1) p2) (cons-stream (cons (move-y step p1) p2) (next-points (cons (move-y step p1) p2))))
-          ((correct? (move-x step p1) (move-x step p2)) (cons-stream (cons (move-x step p1) (move-x step p2)) (next-points (cons (move-x step p1) (move-x step p2)))))
-          ((correct? (move-y step p1) (move-x step p2)) (cons-stream (cons (move-y step p1) (move-x step p2)) (next-points (cons (move-y step p1) (move-x step p2)))))
-          ((correct? (move-x step p1) (move-y step p2)) (cons-stream (cons (move-x step p1) (move-y step p2)) (next-points (cons (move-x step p1) (move-y step p2)))))
-          ((correct? (move-y step p1) (move-y step p2)) (cons-stream (cons (move-y step p1) (move-y step p2)) (next-points (cons (move-y step p1) (move-y step p2)))))
-          (else (next-points (1+ step) point-pair)))))
+    ) 'un)
 
-(define pointPairs 
-  (cons-stream (cons (cons 0 0) (cons 1 2)) (next-points 1 (cons (cons 0 0) (cons 1 2)))))
+(define pointPairs 'un)
 
 (define (get-n-list s n)
   (define (iter i str)
